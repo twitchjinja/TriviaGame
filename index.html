@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TriviaGame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+        <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+    <h1>Trivia Game!</h1>
+    </div>
+</div>
+</div>
+<div class="container">
+        <div class="row">
+          <div class="col-2">
+              <h2 type="button" id="start">Start!</h2>
+              <h2 type="button" id="stop">Stop!</h2>
+    <h2 id="timer"></h2>
+    </div>
+</div>
+</div>
+<div class="container">
+        <div class="row">
+          <div class="col-sm">
+    <h2 id="question1">How many championships do the Lakers have?</h2>
+    </div>
+</div>
+<div class="row">
+        <div class="col-12">
+        <div class="form-check form-check-inline">
+                <input class="wrongAnswer" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="wrongAnswer" for="inlineCheckbox1">10</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="wrongAnswer" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="wrongAnswer" for="inlineCheckbox2">12</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="wrongAnswer" type="checkbox" id="inlineCheckbox3" value="option3">
+                <label class="wrongAnswer" for="inlineCheckbox3">15</label>
+              </div>
+              <div class="form-check form-check-inline">
+                    <input class="rightAnswer" type="checkbox" id="inlineCheckbox4" value="option4">
+                    <label class="rightAnswer" for="inlineCheckbox4">16</label>
+                  </div>
+                </div>
+</div>
+<div class="container">
+        <div class="row">
+          <div class="col-sm">
+    <h2 id="question2">What number jersey did kobe wear?</h2>
+    </div>
+</div>
+<div class="row">
+        <div class="col-sm">
+        <div class="form-check form-check-inline">
+                <input class="wrongAnswer" type="checkbox" id="inlineCheckbox5" value="option5">
+                <label class="wrongAnswer" for="inlineCheckbox5">10</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="wrongAnswer" type="checkbox" id="inlineCheckbox6" value="option6">
+                <label class="wrongAnswer" for="inlineCheckbox6">18</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="wrongAnswer" type="checkbox" id="inlineCheckbox7" value="option7">
+                <label class="wrongAnswer" for="inlineCheckbox7">22</label>
+              </div>
+              <div class="form-check form-check-inline">
+                    <input class="rightAnswer" type="checkbox" id="inlineCheckbox8" value="option8">
+                    <label class="rightAnswer" for="inlineCheckbox8">24</label>
+                  </div>
+                  </div>
+        </div>
+<div class="container">
+        <div class="row">
+          <div class="col-sm">
+    <h2 id="question3">How many rings does kobe have won?</h2>
+    </div>
+</div>
+<div class="row">
+        <div class="col-sm">
+        <div class="form-check form-check-inline">
+                <input class="wrongAswer" type="checkbox" id="inlineCheckbox9" value="option9">
+                <label class="wrongAswer" for="inlineCheckbox9">1</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="wrongAnswer" type="checkbox" id="inlineCheckbox10" value="option10">
+                <label class="wrongAnswer" for="inlineCheckbox10">3</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="wrongAswer" type="checkbox" id="inlineCheckbox11" value="option11">
+                <label class="wrongAswer" for="inlineCheckbox11">4</label>
+              </div>
+              <div class="form-check form-check-inline">
+                    <input class="rightAnswer" type="checkbox" id="inlineCheckbox12" value="option12">
+                    <label class="rightAnswer" for="inlineCheckbox12">5</label>
+                  </div>
+                  </div>
+</div>
+    
+    <script>
+        $(document).ready(function() {
+            
+            var intervalId;
+            var time = 20;
+            var correctAnswer = 0;
+            var wrongAnswer = 0;
+            $('.rightAnswer').on("click", function(){
+                correctAnswer ++;
+            });
+            $('.wrongAnswer').on("click", function(){
+                wrongAnswer ++;
+            });
+            $('#start').on("click", run);
+            $('#stop').on("click", stop);
+                function run() {
+                    intervalId = setInterval(decrement, 1000);
+                };
+                            function decrement() {
+                                 time--;
+                                if (time === 0) {
+                                    stop();
+                                     };
+                              $("#timer").text("time remaining " + time);
+                            };
+                            function stop() {
+                    clearInterval(intervalId);
+                    alert("Times Up!" + " corret answers " + correctAnswer + " wrong answers " + wrongAnswer);
+                         };
+                            
+                        });
+                                
+
+
+
+
+        
+    
+    </script>
+    
+</body>
+</html>
